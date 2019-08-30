@@ -4,12 +4,14 @@
 #
 Name     : mvn-build-helper-maven-plugin
 Version  : 1.12
-Release  : 2
+Release  : 3
 URL      : https://repo1.maven.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/1.12/build-helper-maven-plugin-1.12.jar
 Source0  : https://repo1.maven.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/1.12/build-helper-maven-plugin-1.12.jar
 Source1  : https://repo1.maven.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/1.12/build-helper-maven-plugin-1.12.pom
-Source2  : https://repo1.maven.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/3.0.0/build-helper-maven-plugin-3.0.0.jar
-Source3  : https://repo1.maven.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/3.0.0/build-helper-maven-plugin-3.0.0.pom
+Source2  : https://repo1.maven.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/1.7/build-helper-maven-plugin-1.7.jar
+Source3  : https://repo1.maven.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/1.7/build-helper-maven-plugin-1.7.pom
+Source4  : https://repo1.maven.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/3.0.0/build-helper-maven-plugin-3.0.0.jar
+Source5  : https://repo1.maven.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/3.0.0/build-helper-maven-plugin-3.0.0.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT
@@ -27,21 +29,28 @@ data components for the mvn-build-helper-maven-plugin package.
 
 
 %prep
+%setup -q -n META-INF
 
 %build
 
 %install
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/1.12
-cp %{SOURCE0} %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/1.12
+cp %{SOURCE0} %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/1.12/build-helper-maven-plugin-1.12.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/1.12
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/1.12
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/1.12/build-helper-maven-plugin-1.12.pom
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/1.7
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/1.7/build-helper-maven-plugin-1.7.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/1.7
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/1.7/build-helper-maven-plugin-1.7.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/3.0.0
-cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/3.0.0
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/3.0.0/build-helper-maven-plugin-3.0.0.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/3.0.0
-cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/3.0.0
+cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/3.0.0/build-helper-maven-plugin-3.0.0.pom
 
 
 %files
@@ -51,5 +60,7 @@ cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/build
 %defattr(-,root,root,-)
 /usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/1.12/build-helper-maven-plugin-1.12.jar
 /usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/1.12/build-helper-maven-plugin-1.12.pom
+/usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/1.7/build-helper-maven-plugin-1.7.jar
+/usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/1.7/build-helper-maven-plugin-1.7.pom
 /usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/3.0.0/build-helper-maven-plugin-3.0.0.jar
 /usr/share/java/.m2/repository/org/codehaus/mojo/build-helper-maven-plugin/3.0.0/build-helper-maven-plugin-3.0.0.pom
